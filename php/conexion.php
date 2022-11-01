@@ -7,8 +7,15 @@ class conexion{
     const user='root'; //nombre de usuario de la DB
     const pass=''; //Contraseña de la DB
     const db='temperin'; // Nombre de la DB
-    const servidor='LOCALHOST'; //Nombre del HOST
+    const servidor='localhost'; //Nombre del HOST
+    /*
 
+    //BD en 000WebHost
+    const user='id17890818_admin';
+    const pass='O\<!dE1E21~F1FZ(';
+    const db='id17890818_iot01';
+    const servidor='localhost';
+*/
     public function conectardb(){
         $conectar = new mysqli(self::servidor, self::user,self::pass,self::db);
         if($conectar->connect_error){
