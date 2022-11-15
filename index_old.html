@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperin</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap" rel="stylesheet"> 
+    
+    <div class="container xs">  
+
+    </div>
+    <div class="container text-center">
+        <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+            <div class="col">
+                <h4></h4>
+            </div>
+
+            <div class="col estado" style="font-size: larger !important;" id="estado"> 
+                <script>
+                    function ajax() {
+                        const http = new XMLHttpRequest();
+                        const url = 'http://localhost/paginas/temperin/php/update-og.php';
+
+                        http.onreadystatechange = function (){
+                            if(this.readyState == 4 && this.status == 200) {
+                                console.log(this.responseText);
+                                document.getElementById("estado").innerHTML = this.responseText
+                            }
+                        }
+
+                        http.open("GET", url);
+                        http.send();
+                    }
+                
+                setInterval(function() {
+                    ajax();
+                }, 300)
+
+                </script>
+            </div>
+
+            <div class="col">
+            <script src="/js/update.js"></script>
+
+                <h4 id="test"></h4>
+            </div>
+        </div>        
+        
+    </div>
+
+    
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/color.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</body>
+</html>

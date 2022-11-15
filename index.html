@@ -1,66 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temperin</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Sensor de Temperatura Temperin</title>
+    <link rel='stylesheet' href='https://unpkg.com/bulma@0.9.1/css/bulma.min.css'>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
+
 <body>
-
-    <div class="container xs">  
-
-    </div>
-
-    <div class="container text-center">
-        <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
-            <div class="col">
-                <h4></h4>
-            </div>
-
-            <div class="col estado" id="estado"> 
-                <script>
-                    function ajax() {
-                        const http = new XMLHttpRequest();
-                        const url = 'http://localhost/paginas/temperin/php/update-og.php';
-
-                        http.onreadystatechange = function (){
-                            if(this.readyState == 4 && this.status == 200) {
-                                console.log(this.responseText);
-                                document.getElementById("estado").innerHTML = this.responseText
-                            }
-                        }
-
-                        http.open("GET", url);
-                        http.send();
-                    }
-                
-                setInterval(function() {
-                    ajax();
-                }, 300)
-                    
-
-                
-
-
-                </script>
-            </div>
-
-            <div class="col">
-            <script src="/js/update.js"></script>
-
-                <h4 id="test"></h4>
-            </div>
-        </div>        
-        
-    </div>
-
+    <section id='app' class='hero is-link is-fullheight'>
+        <div class='hero-body'>
+            <div class='container'>
+                <div class='columns has-text-centered'>
+                    <div class='column'>
+                        <h1 style='font-size: 2.5rem'>Temperin registro estos datos</h1>
+                        <i class='fa fa-thermometer-half' style='font-size: 6rem;'></i>
+                    </div>
+                </div>
+                <div class='columns' id="estado">
+                    <div class='column has-text-centered'>
+                        <h2 class='is-size-4 has-text-warning'>Temperatura Registrada</h2>
+                        <h2 class='is-size-1'>10.4 °C</h2>
+                    </div>
+                    <div class='column has-text-centered'>
+                        <h2 class='is-size-4 has-text-warning'>Humedad Registrada</h2>
+                        <h2 class='is-size-1'>5.3 %</h2>
+                    </div>
+                    <script>
+                        function ajax() {
+                            const http = new XMLHttpRequest();
+                            const url = 'http://localhost/paginas/temperin/php/update-og.php';
     
-
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/color.js"></script>
+                            http.onreadystatechange = function (){
+                                if(this.readyState == 4 && this.status == 200) {
+                                    console.log(this.responseText);
+                                    document.getElementById("estado").innerHTML = this.responseText
+                                }
+                            }
+    
+                            http.open("GET", url);
+                            http.send();
+                        }
+                    
+                        setInterval(function() {
+                            ajax();
+                        }, 300)
+    
+                    </script>
+                </div>
+                <div class='columns'>
+                    <div class='column'>
+                        <p>Última lectura: Hace <strong class='has-text-white'>25</strong> Horas(s)</p>
+                        <p class='is-size-5'><i class='fa fa-code'></i> con <i class='fa fa-heart has-text-danger'></i>
+                            por team temperin<a target='_blank' class='has-text-warning"
+                            <a target="_blank" class="has-text-warning&quot;
+                            href=" https:="" parzibyte.me="" blog'=""> </a>
+                            
+                </div>
+            </div>
+        
+        </div>
+    </section>
 </body>
+
 </html>
